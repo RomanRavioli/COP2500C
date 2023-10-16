@@ -11,11 +11,14 @@ def temperature_convertion(temperature, modifier):
         return temperature * 9/5 + 32 + modifier // 2
 
 # Calculates if you're cold depending on if you're on vacation or not
+
+
 def to_cold(temperature, vacation):
     if (vacation == True and temperature < 50) or (vacation == False and temperature < 70):
         return True
     else:
         return False
+
 
 def main():
     a = temperature_convertion(0, 1)
