@@ -4,6 +4,7 @@
 # 10/13/2023
 
 # Testing integration with Replit
+# Testing syncing capabilities with Github
 
 # Calculates temperature and modifies it if modifier is at least 2 degrees away from 0
 def temperature_convertion(temperature, modifier):
