@@ -5,22 +5,17 @@
 
 # Calculates temperature and adds a modifier if it's below -2 or over 2
 def temperature_convertion(temperature, modifier):
-    return (temperature * 9/5) + 32 + modifier // 2
+    if modifier > -2 and modifier < 2:
+        return temperature * 9/5 + 32
+    else:
+        return temperature * 9/5 + 32 + modifier // 2
 
 # Calculates if you're cold depending on if you're on vacation or not
-
-
 def to_cold(temperature, vacation):
-    # If you're on vacation and the temperature is over 50, you do not feel cold
-    if (vacation == True and temperature > 50):
-        return False
-    # If you're not on vacation and the temperature is below 70, you feel cold
-    elif temperature < 70:
+    if (vacation == True and temperature < 50) or (vacation == False and temperature < 70):
         return True
-    # For every other scenario, you don't feel cold
     else:
         return False
-
 
 def main():
     a = temperature_convertion(0, 1)
