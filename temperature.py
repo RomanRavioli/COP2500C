@@ -3,7 +3,7 @@
 # COP 2500 Section 5
 # 10/13/2023
 
-# Calculates temperature and adds a modifier if it's below -2 or over 2
+# Calculates temperature and modifies it if modifier is at least 2 degrees away from 0
 def temperature_convertion(temperature, modifier):
     if modifier > -2 and modifier < 2:
         return temperature * 9/5 + 32
