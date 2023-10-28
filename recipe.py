@@ -12,8 +12,6 @@ def load(ingredients):
     ingredients[4] = float(input("How many avocados do you have?\n"))
 
 # This function shows the menu screen and returns the user's choice.
-
-
 def menu():
     print("\nWhat would you like to do?")
     print("1 - View Ingredients")
@@ -24,8 +22,6 @@ def menu():
     return option
 
 # This function allows the user to view how many of each ingredients they have.
-
-
 def view(ingredients):
     print("\nAmount of Ingredients:")
     print("Bananas:        ", ingredients[0])
@@ -35,8 +31,6 @@ def view(ingredients):
     print("Avocados:       ", ingredients[4])
 
 # This functions lets the user change how many of each ingredient they have.
-
-
 def update(ingredients):
     ingredients[0] = float(input("\nHow many bananas do you have?\n"))
     ingredients[1] = float(input("How many strawberries do you have?\n"))
@@ -46,8 +40,6 @@ def update(ingredients):
 
 # This function asks which ingredients to use, then checks if there's enough.
 # If there is enough, will calculate the Drink Score and the Health Score.
-
-
 def make(ingredients):
 
     # Asks whhihch ingredients to use.
@@ -94,6 +86,7 @@ def make(ingredients):
 
 
 def main():
+
     # The Welcome Message
     print("Welcome to our Smoothie Recipe Analyzer!\n")
 
