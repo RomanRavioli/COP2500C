@@ -22,12 +22,10 @@ def add_time(racer_a, racer_b):
         return
     time = float(input("What is the time to be added?\n"))
     if (choice == "A"):
-        racer_a.append([])
-        racer_a[len(racer_a) - 1].append(time)
+        racer_a.append(time)
         return
     if (choice == "B"):
-        racer_b.append([])
-        racer_b[len(racer_b) - 1].append(time)
+        racer_b.append(time)
         return
 
 # This function lets user delete a time, either by deleting a race or a time
@@ -48,10 +46,10 @@ def delete_time(racer_a, racer_b):
     if (question == "time"):
         time = float(input("What time should be deleted?\n"))
         if (choice == "A"):
-            racer_a.remove([time])
+            racer_a.remove(time)
             return
         if (choice == "B"):
-            racer_b.remove([time])
+            racer_b.remove(time)
             return
         
     # Deletes an entire race through the outer list
@@ -70,7 +68,7 @@ def compare_time(racer_a, racer_b):
 
     # Checks to see if any racer has zero times
     if(len(racer_a) == 0 or len(racer_b) == 0):
-        print("At least one racer has no times!")
+        print("\nAt least one racer has no times!")
         return
     
     # Checks to see if both racers have the same number of races
@@ -78,12 +76,14 @@ def compare_time(racer_a, racer_b):
     if(len(racer_a) != len(racer_b)):
         print("\nRacer A has data for " + str(len(racer_a)) + " races.")
         print("Racer B has data for " + str(len(racer_b)) + " races.")
+    
+    # Compares the times
     if(len(racer_a) > len(racer_b)):
-        print("We will compare the first " + str(len(racer_b)) + " races.")
+        print("\nWe will compare the first " + str(len(racer_b)) + " races.")
     if(len(racer_a) < len(racer_b)):
-        print("We will compare the first " + str(len(racer_a)) + " races.")
+        print("\nWe will compare the first " + str(len(racer_a)) + " races.")
     if(len(racer_a) == len(racer_b)):
-        print("We will compare the first " + str(len(racer_b)) + " races.")
+        print("\nWe will compare the first " + str(len(racer_b)) + " races.")
     
     # If racer A has less races
     if(len(racer_a) < len(racer_b)):
@@ -122,54 +122,56 @@ def compare_time(racer_a, racer_b):
                 print("The racers tie race #" + str(i + 1) + ".")
 
 # This function checks to see who qualifies
-def check_qualifiers(racer_a, racer_b, qualifer):
+def check_qualifiers(racer_a, racer_b, qualifier):
+    print("") # For style spacing
     for i in range (3):
-        print("") # For style spacing
-        if(racer_a[i][0] > qualifer[i]):
-            print("Racer A Qualifies!")
-        if(racer_b[i][0] > qualifer[i]):
-            print("Racer B Qualifies!")
-        if(racer_a[i][0] <= qualifer[i] and racer_b[i][0] <= qualifer[i]):
-            print("Neither racer qualified.")
-        return
+        if(racer_a[i] > qualifier[1] and racer_b[i] > qualifier[i]):
+            print("Race #" + str(i + 1) + ": Both racers qualify!")
+        elif(racer_a[i] > qualifier[i]):
+            print("Race #" + str(i + 1) + ": Racer A qualifies!")
+        elif(racer_b[i] > qualifier[i]):
+            print("Race #" + str(i + 1) + ": Racer B qualifies!")
+        else:
+            print("Race #" + str(i + 1) + ": Neither racer qualified.")
 
-# Our main function  
+# Our main function
 def main():
 
-    # Creates a 2d-list for Racer A and Racer B, as well as a normal list for qualifer times
-    racer_a = [[0], [0], [0]]
-    racer_b = [[0], [0], [0]]
-    qualifer = [0,0,0]
+    # Creates a 2d-list for Racer A and Racer B and Qualifier Times
+    times = {"racer_a":[0,0,0], "racer_b":[0,0,0], "qualifier":[0,0,0]}
     
     # Loads the times for Racer A
     print("Enter times for Racer A:")
-    racer_a[0][0] = float(input("Race #1: "))
-    racer_a[1][0] = float(input("Race #2: "))
-    racer_a[2][0] = float(input("Race #3: "))
+    times["racer_a"][0] = float(input("Race #1: "))
+    times["racer_a"][1] = float(input("Race #2: "))
+    times["racer_a"][2] = float(input("Race #3: "))
 
     # Loads the times for Racer B
     print("\nEnter times for Racer B:")
-    racer_b[0][0] = float(input("Race #1: "))
-    racer_b[1][0] = float(input("Race #2: "))
-    racer_b[2][0] = float(input("Race #3: "))
+    times["racer_b"][0] = float(input("Race #1: "))
+    times["racer_b"][1] = float(input("Race #2: "))
+    times["racer_b"][2] = float(input("Race #3: "))
     
     # Loads the qualifying times
     print("\nEnter times for the qualifiers:")
-    qualifer[0] = float(input("Race #1: "))
-    qualifer[1] = float(input("Race #2: "))
-    qualifer[2] = float(input("Race #3: "))
+    times["qualifier"][0] = float(input("Race #1: "))
+    times["qualifier"][1] = float(input("Race #2: "))
+    times["qualifier"][2] = float(input("Race #3: "))
+
+    print("\n" + str(times))
     
     # Infinitely looping menu selection that stops on choice = 5
     choice = menu()
     while (choice != 5):
         if(choice == 1):
-            add_time(racer_a, racer_b)
+            add_time(times["racer_a"], times["racer_b"])
         if(choice == 2):
-            delete_time(racer_a, racer_b)
+            delete_time(times["racer_a"], times["racer_b"])
         if(choice == 3): 
-            compare_time(racer_a, racer_b)
+            compare_time(times["racer_a"], times["racer_b"])
         if(choice == 4):
-            check_qualifiers(racer_a, racer_b, qualifer)
+            check_qualifiers(times["racer_a"], times["racer_b"], times["qualifier"])
+        print("\n" + str(times))
         choice = menu()
 
 # This starts our program
