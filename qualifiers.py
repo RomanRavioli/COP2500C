@@ -89,55 +89,55 @@ def compare_time(racer_a, racer_b):
     if(len(racer_a) < len(racer_b)):
         for i in range(len(racer_a)):
             # Racer A wins
-            if (racer_a[i] > racer_b[i]):
-                print("Racer A has won race #" + str(i + 1) + "!")
-            # Racer B wins
             if (racer_a[i] < racer_b[i]):
-                print("Racer B has won race #" + str(i + 1) + "!")
+                print("Racer A has won race #" + str(i + 1))
+            # Racer B wins
+            if (racer_a[i] > racer_b[i]):
+                print("Racer B has won race #" + str(i + 1))
             # Tie
             if (racer_a[i] == racer_b[i]):
-                print("The racers tie race #" + str(i + 1) + ".")       
+                print("The racers tie race #" + str(i + 1))       
     
     # If racer B has less races
     if(len(racer_a) > len(racer_b)):
         for i in range(len(racer_b)):
             # Racer A wins
-            if (racer_a[i] > racer_b[i]):
-                print("Racer A has won race #" + str(i + 1) + "!")
-            # Racer B wins
             if (racer_a[i] < racer_b[i]):
-                print("Racer B has won race #" + str(i + 1) + "!")
+                print("Racer A has won race #" + str(i + 1))
+            # Racer B wins
+            if (racer_a[i] > racer_b[i]):
+                print("Racer B has won race #" + str(i + 1))
             # Tie
             if (racer_a[i] == racer_b[i]):
-                print("The racers tie race #" + str(i + 1) + ".")      
+                print("The racers tie race #" + str(i + 1))      
     
     # If both racers have the same amount of races
     if(len(racer_a) == len(racer_b)):
         for i in range(len(racer_b)):
-            if (racer_a[i] > racer_b[i]):
-                print("Racer A has won race #" + str(i + 1) + "!")
             if (racer_a[i] < racer_b[i]):
-                print("Racer B has won race #" + str(i + 1) + "!")
+                print("Racer A has won race #" + str(i + 1))
+            if (racer_a[i] > racer_b[i]):
+                print("Racer B has won race #" + str(i + 1))
             if (racer_a[i] == racer_b[i]):
-                print("The racers tie race #" + str(i + 1) + ".")
+                print("The racers tie race #" + str(i + 1))
 
 # This function checks to see who qualifies
 def check_qualifiers(racer_a, racer_b, qualifier):
     print("") # For style spacing
     for i in range (3):
-        if(racer_a[i] > qualifier[1] and racer_b[i] > qualifier[i]):
-            print("Race #" + str(i + 1) + ": Both racers qualify!")
-        elif(racer_a[i] > qualifier[i]):
-            print("Race #" + str(i + 1) + ": Racer A qualifies!")
+        if(racer_a[i] < qualifier[1] and racer_b[i] < qualifier[i]):
+            print("Qualifier #" + str(i + 1) + ": Racer A and Racer B both qualified!")
+        elif(racer_a[i] < qualifier[i]):
+            print("Qualifier #" + str(i + 1) + ": Racer A qualifies!")
         elif(racer_b[i] > qualifier[i]):
-            print("Race #" + str(i + 1) + ": Racer B qualifies!")
+            print("Qualifier #" + str(i + 1) + ": Racer B qualifies!")
         else:
-            print("Race #" + str(i + 1) + ": Neither racer qualified.")
+            print("Qualifier #" + str(i + 1) + ": Neither racer qualified.")
 
 # Our main function
 def main():
 
-    # Creates a 2d-list for Racer A and Racer B and Qualifier Times
+    # Creates a dictionary with lists for Racer A and Racer B and Qualifier Times
     times = {"racer_a":[0,0,0], "racer_b":[0,0,0], "qualifier":[0,0,0]}
     
     # Loads the times for Racer A
