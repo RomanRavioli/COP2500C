@@ -125,7 +125,7 @@ def compare_time(racer_a, racer_b):
 def check_qualifiers(racer_a, racer_b, qualifier):
     print("") # For style spacing
     for i in range (3):
-        if(racer_a[i] < qualifier[1] and racer_b[i] < qualifier[i]):
+        if(racer_a[i] < qualifier[i] and racer_b[i] < qualifier[i]):
             print("Qualifier #" + str(i + 1) + ": Racer A and Racer B both qualified!")
         elif(racer_a[i] < qualifier[i]):
             print("Qualifier #" + str(i + 1) + ": Racer A qualifies!")
