@@ -36,7 +36,6 @@ def compare_goals(dictionary_1, dictionary_2):
                 # return False
         # Else <- This will be True if it isn't in the dictionary
             # return False
-    
     return True
 
 def main():
