@@ -13,13 +13,12 @@ def load_data():
 	return
 
 def main():
-	
 	print("Set your goals for the week!\n")
-	
 	goals = {}
-	days = { "Monday": [], "Tuesday" : [], "Wednesday" : [], "Thursday" : [], "Friday" : [], "Saturday" : [], "Sunday" : [] }
-	
+	count = 0
 	load_goals(goals)
+
+	days = { "Monday": [], "Tuesday" : [], "Wednesday" : [], "Thursday" : [], "Friday" : [], "Saturday" : [], "Sunday" : [] }
 	
 	for day in days:
 		print("It\'s "+day)
