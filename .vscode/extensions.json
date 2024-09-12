@@ -3,9 +3,5 @@
         "formulahendry.code-runner"
     ]
     "code-runner.executorMap": {
-    "python": "clear && python3.10 -u",
-},
-"code-runner.clearPreviousOutput": true,
-"code-runner.showExecutionMessage": false,
-"code-runner.runInTerminal": true,
+    "c": "clear",}
 }
