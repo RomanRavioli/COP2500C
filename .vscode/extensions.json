@@ -2,6 +2,4 @@
     "recommendations": [
         "formulahendry.code-runner"
     ]
-    "code-runner.executorMap": {
-    "c": "clear",}
 }

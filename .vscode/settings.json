@@ -4,6 +4,3 @@
     "editor.defaultFormatter": "ms-python.autopep8"
   }
 }
-{
-  "console": "internalConsole",
-}
